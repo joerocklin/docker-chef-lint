@@ -8,5 +8,6 @@ RUN apt-get update \
           patch \
     && rm -rf /var/lib/apt/lists/*
 
-RUN gem install foodcritic -v 6.0.1 --no-ri --no-rdoc \
+RUN gem install bundler --no-ri --no-rdoc \
+ && gem install foodcritic -v 6.0.1 --no-ri --no-rdoc \
  && gem install rubocop -v 0.38.0 --no-ri --no-rdoc
