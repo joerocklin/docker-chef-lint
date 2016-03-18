@@ -10,4 +10,5 @@ RUN apt-get update \
 
 RUN gem install bundler --no-ri --no-rdoc \
  && gem install foodcritic -v 6.0.1 --no-ri --no-rdoc \
- && gem install rubocop -v 0.38.0 --no-ri --no-rdoc
+ && gem install rubocop -v 0.38.0 --no-ri --no-rdoc \
+ && gem install chefspec -v 4.6.0 --no-ri --no-rdoc
