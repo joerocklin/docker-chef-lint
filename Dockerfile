@@ -6,9 +6,23 @@ RUN apt-get update \
           gcc   \
           make  \
           patch \
+          locales \
     && rm -rf /var/lib/apt/lists/*
 
+COPY locale.gen /etc/locale.gen
+
+RUN echo 'locales locales/default_environment_locale select en_US.UTF-8' | debconf-set-selections -v \
+    && rm --force --verbose /etc/default/locale \
+    && dpkg-reconfigure --frontend=noninteractive locales \
+    && update-locale LANG='en_US.UTF-8' \
+    && update-locale LANGUAGE='en_US.UTF-8'
+
+ENV LC_ALL=en_US.UTF-8
+
 RUN gem install bundler --no-ri --no-rdoc \
- && gem install foodcritic -v 6.0.1 --no-ri --no-rdoc \
- && gem install rubocop -v 0.38.0 --no-ri --no-rdoc \
- && gem install chefspec -v 4.6.0 --no-ri --no-rdoc
+ && gem install foodcritic -v 6.1.0 --no-ri --no-rdoc \
+ && gem install rubocop -v 0.39.0 --no-ri --no-rdoc \
+ && gem install chefspec -v 4.6.1 --no-ri --no-rdoc \
+ && gem install chef-sugar -v 3.3.0 --no-ri --no-rdoc \
+ && gem install berkshelf -v 4.3.2 --no-ri --no-rdoc
+
