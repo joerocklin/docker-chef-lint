@@ -20,9 +20,9 @@ RUN echo 'locales locales/default_environment_locale select en_US.UTF-8' | debco
 ENV LC_ALL=en_US.UTF-8
 
 RUN gem install bundler --no-ri --no-rdoc \
- && gem install foodcritic -v 6.1.0 --no-ri --no-rdoc \
- && gem install rubocop -v 0.39.0 --no-ri --no-rdoc \
- && gem install chefspec -v 4.6.1 --no-ri --no-rdoc \
+ && gem install foodcritic -v 6.3.0 --no-ri --no-rdoc \
+ && gem install cookstyle --no-ri --no-rdoc \
+ && gem install chefspec -v 4.7.0 --no-ri --no-rdoc \
  && gem install chef-sugar -v 3.3.0 --no-ri --no-rdoc \
- && gem install berkshelf -v 4.3.2 --no-ri --no-rdoc
+ && gem install berkshelf -v 4.3.5 --no-ri --no-rdoc
 
