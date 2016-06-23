@@ -7,6 +7,7 @@ RUN apt-get update \
           make  \
           patch \
           locales \
+          git \
     && rm -rf /var/lib/apt/lists/*
 
 COPY locale.gen /etc/locale.gen
